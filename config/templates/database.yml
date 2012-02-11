@@ -14,7 +14,7 @@ development:
   reconnect: false
   database: monofonia_development
   pool: 5
-  username: austinl
+  username: d4l
   password:
   socket: /var/run/mysqld/mysqld.sock
 

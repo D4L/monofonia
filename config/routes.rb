@@ -1,3 +1,3 @@
 Monofonia::Application.routes.draw do
-  root :to => "comments#index"
+  root :to => "home#index" # The main head
 end

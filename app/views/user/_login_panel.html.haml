@@ -1,0 +1,9 @@
+= form_tag :controller => "user", :action => "login" do
+  %h3 login
+  = text_field "user", "username", :size => 20
+  %br
+  = password_field "user", "pass", :size => 20
+  %br
+  = submit_tag "submit"
+  %br
+  = link_to 'Register', user_signup_url

@@ -14,10 +14,8 @@ class UserController < ApplicationController
   def login
     if request.post?
       if session[:user] = User.authenticate(params[:user][:username], params[:user][:pass])
-        logger.info ("AOEUAOEUAOEUAOEU")
         redirect_to root_url
       else
-        logger.info("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
       end
     end
   end

@@ -1,8 +1,9 @@
 Monofonia::Application.routes.draw do
-  get "group/create"
+  match 'group/create' => 'group#create', :via => [:get, :post]
+  get "user/logout"
+  match 'user/signup' => 'user#signup', :via => [:get, :post]
+  match 'user/login' => 'user#login', :via => [:get, :post]
+  get "group/show"
 
   root :to => "home#index" # The main head
-
-  match 'user/signup', :to => 'user#signup'
-  match 'user/login', :to => 'user#login'
 end

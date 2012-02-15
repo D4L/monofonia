@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
 
   attr_accessor :pass
 
+  has_and_belongs_to_many :groups
+
   def pass=(pass)
     @pass=pass
     self.salt = User.random_string(10) if !self.salt?

@@ -4,7 +4,7 @@ class UserController < ApplicationController
     @user = User.new(params[:user])
     if request.post?
       if @user.save
-        session[:user] = User.authenticate(@user.username, @user.pass)
+        session[:cur_user_id] = User.authenticate(@user.username, @user.pass).id
         redirect_to root_url
       else
       end
@@ -13,7 +13,7 @@ class UserController < ApplicationController
 
   def login
     if request.post?
-      if session[:user] = User.authenticate(params[:user][:username], params[:user][:pass])
+      if session[:cur_user_id] = User.authenticate(params[:user][:username], params[:user][:pass]).id
         redirect_to root_url
       else
       end
@@ -21,7 +21,7 @@ class UserController < ApplicationController
   end
 
   def logout
-    session[:user] = nil
+    session[:cur_user_id] = nil
     redirect_to root_url
   end
 end

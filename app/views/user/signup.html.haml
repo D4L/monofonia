@@ -1,6 +1,9 @@
-= form_tag :action => "signup" do
-  = text_field "user", "username", :size => 20
+= form_for @user, :url => {:action => "signup"} do |f|
+  - if @user.errors.any?
+    - @user.errors.full_messages.each do |msg|
+      = msg
+  = f.text_field :username, :size => 20
   %br
-  = password_field "user", "pass", :size => 20
+  = f.password_field :pass, :size => 20
   %br
-  = submit_tag "Signup"
+  = f.submit "Signup"

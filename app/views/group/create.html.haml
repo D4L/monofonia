@@ -1,4 +1,7 @@
-= form_tag :action => "create" do
-  = text_field "group", "name", :size => 20
+= form_for @group, :url => {:action => "create"} do |f|
+  - if @group.errors.any?
+    - @group.errors.full_messages.each do |msg|
+      = msg
+  = f.text_field :name, :size => 20
   %br
-  = submit_tag "Create"
+  = f.submit "Create"

@@ -5,7 +5,9 @@ class UserController < ApplicationController
     respond_to do |format|
       if @user.save
         session[:cur_user_id] = User.authenticate(@user.username, @user.pass).id
-        redirect_to root_url
+        puts "@@@@@@@@@@@@@@@@@@@@@@@@@@@@22"
+        format.html {redirect_to root_url}
+        format.json {head :no_content}
       else
         format.html {render :action => "signup"}
         @user.errors.clear if !request.post?

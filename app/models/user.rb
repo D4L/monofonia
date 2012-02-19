@@ -13,7 +13,12 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :groups
 
   def pass=(pass)
-    @pass=pass
+    return if self.password
+    if pass
+      @pass = pass
+    else
+      @pass = ""
+    end
     self.salt = User.random_string(10) if !self.salt?
     self.password = User.encrypt(@pass, self.salt)
   end

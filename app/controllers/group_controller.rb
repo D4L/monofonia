@@ -3,8 +3,9 @@ class GroupController < ApplicationController
     @group = Group.new(params[:group])
     respond_to do |format|
       if @group.save
-        session[:user].groups << @group
-        redirect_to root_url
+        User.find(session[:cur_user_id]).groups << @group
+        format.html {redirect_to root_url}
+        format.json {head :no_content}
       else
         format.html {render :action => "create"}
         @group.errors.clear if !request.post?

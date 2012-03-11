@@ -7,5 +7,12 @@
     = csrf_meta_tags
 
   %body
-    = render "shared/header"
-    = yield
+    .header
+      = render "shared/header"
+    .contents
+      = yield
+    .userControl
+      - if @_current_user
+        = render "user/control_panel"
+      - else
+        = render "user/login_panel"

@@ -1,8 +1,11 @@
 = form_tag :controller => "user", :action => "login" do
-  %h3 login
-  = text_field "user", "username", :size => 20
+  .loginHeader
+    Login
+  = label_tag "Username: "
+  = text_field "user", "username", :size => 15
   %br
-  = password_field "user", "pass", :size => 20
+  = label_tag "Password: "
+  = password_field "user", "pass", :size => 15
   %br
   = submit_tag "submit"
   %br

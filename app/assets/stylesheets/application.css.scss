@@ -1,10 +1,53 @@
 @import "variables/global";
 
 * {
+  position: relative;
   margin: 0px;
   padding: 0px;
 }
 
 body {
-  color: $main-font-color;
+  width: 100%;
+  font-family: $main-font-family;
+  font-color: $main-font-color;
+}
+
+.header {
+  width: 100%;
+  text-align: center;
+  font-size: 80px;
+  font-weight: bold;
+  height: 100px;
+}
+
+.contents {
+  display: inline-table;
+  float: left;
+}
+.userControl {
+  float: right;
+  width: 300px;
+  border: thin solid black;
+  display: inline-table;
+
+  .loginHeader {
+    height: 40px;
+    text-align: center;
+    font-size: 23px;
+    vertical-align: center;
+    font-weight: bold;
+  }
+  input {
+    height: 20px;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  input[type="submit"] {
+    height: 30px;
+    width: 70px;
+    font-size: 18px;
+    background: white;
+    float: right;
+    margin-right: 20px;
+  }
 }

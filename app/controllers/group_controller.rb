@@ -13,4 +13,7 @@ class GroupController < ApplicationController
       end
     end
   end
+  def index
+    @groups = @_current_user.groups if @_current_user
+  end
 end
